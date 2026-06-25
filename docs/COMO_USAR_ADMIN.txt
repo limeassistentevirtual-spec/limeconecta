@@ -1,0 +1,17 @@
+LIMECONECTA - Como liberar acessos
+
+1. No Supabase, vá em Authentication > Users.
+2. Clique em Add user.
+3. Cadastre o e-mail da psicóloga e uma senha temporária.
+4. Copie o User ID criado.
+5. Entre no LIMECONECTA com seu e-mail administrador.
+6. Acesse admin.html.
+7. Clique em + Nova cliente.
+8. Cole o User ID, nome, e-mail, plano e vencimento.
+9. Salve.
+
+A cliente poderá acessar com o e-mail e a senha temporária.
+Ela poderá usar “Esqueci minha senha” para definir uma nova senha.
+
+Importante:
+Para envio automático de convite por e-mail sem criar manualmente no Supabase, será necessária uma Edge Function/backend com a service role key. Nunca coloque a secret key no site.
