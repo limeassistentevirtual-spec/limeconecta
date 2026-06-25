@@ -1,0 +1,33 @@
+LIMECONECTA Sprint 1 — Implantação
+
+1. Supabase
+- Abra o projeto LIMECONECTA.
+- Vá em SQL Editor.
+- Cole e execute sql/setup.sql.
+
+2. Criar administradora
+- Vá em Authentication > Users.
+- Crie o usuário administrador com seu e-mail e senha.
+- Copie o ID do usuário criado.
+- Vá em Table Editor > usuarios.
+- Insira uma linha:
+  auth_user_id: ID copiado
+  nome: Jessica
+  email: seu e-mail
+  papel: admin
+  ativo: true
+  plano: Admin
+
+3. Configurar recuperação de senha
+- Authentication > URL Configuration
+- Site URL: https://agendamentos.limeassistentevirtual.workers.dev
+- Redirect URLs: https://agendamentos.limeassistentevirtual.workers.dev/*
+
+4. Cloudflare
+- Envie a pasta inteira limeconecta_sprint1, não apenas index.html.
+
+5. Clientes
+- Para cada cliente, crie a usuária em Authentication > Users.
+- Depois crie/edite o registro em usuarios com auth_user_id, nome, email, papel psicologa, ativo true.
+
+Observação: envio automático de e-mail de convite e criação de senha temporária exige backend/Edge Function com service role. Não coloque a chave secret no navegador.
