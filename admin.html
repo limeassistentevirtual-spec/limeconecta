@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LIMECONECTA — Admin</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div><strong>LIMECONECTA ADMIN</strong><span>Controle de clientes e licenças</span></div>
+    <nav><button class="btn-ghost" id="logout-btn">Sair</button></nav>
+  </header>
+
+  <main class="page">
+    <section class="welcome">
+      <h1>Gestão de acessos</h1>
+      <p class="muted">Cadastre, libere e bloqueie psicólogas que podem usar o LIMECONECTA.</p>
+    </section>
+
+    <section class="cards-grid">
+      <article class="metric"><span>Total de clientes</span><strong id="metric-total-clientes">0</strong></article>
+      <article class="metric"><span>Ativas</span><strong id="metric-ativas">0</strong></article>
+      <article class="metric"><span>Bloqueadas</span><strong id="metric-bloqueadas">0</strong></article>
+      <article class="metric"><span>Em teste</span><strong id="metric-teste">0</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <h1>Clientes</h1>
+          <p>Gerencie o acesso das psicólogas sem entrar no Supabase.</p>
+        </div>
+        <button class="btn-primary" id="add-client-btn">+ Nova cliente</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Plano</th>
+              <th>Status</th>
+              <th>Vencimento</th>
+              <th>Papel</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="clients-body"></tbody>
+        </table>
+      </div>
+      <p class="muted small">Para a primeira versão, crie a usuária em Authentication → Users e copie o User ID. Depois clique em “Nova cliente” aqui para liberar a licença.</p>
+    </section>
+  </main>
+
+  <div class="modal" id="client-modal">
+    <div class="modal-card modal-wide">
+      <button class="modal-close" data-close="client-modal">×</button>
+      <h2 id="client-modal-title">Nova cliente</h2>
+      <p class="muted small">Preencha os dados da cliente. O User ID vem do Supabase Auth.</p>
+      <form id="client-form">
+        <input type="hidden" id="client-existing-id" />
+        <label>User ID do Supabase Auth</label>
+        <input id="client-id" type="text" placeholder="UUID da usuária criada em Authentication" required />
+
+        <label>Nome</label>
+        <input id="client-name" type="text" placeholder="Nome da psicóloga" required />
+
+        <label>E-mail</label>
+        <input id="client-email" type="email" placeholder="email@exemplo.com" required />
+
+        <div class="form-grid">
+          <div>
+            <label>Plano</label>
+            <select id="client-plan" required>
+              <option value="teste">Teste</option>
+              <option value="mensal">Mensal</option>
+              <option value="anual">Anual</option>
+              <option value="vitalicio">Vitalício</option>
+            </select>
+          </div>
+          <div>
+            <label>Vencimento</label>
+            <input id="client-due" type="date" />
+          </div>
+        </div>
+
+        <label class="check-row"><input id="client-active" type="checkbox" checked /> Acesso ativo</label>
+
+        <button class="btn-primary" type="submit">Salvar acesso</button>
+        <p id="client-message" class="message"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

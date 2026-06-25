@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LIMECONECTA — Painel</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div><strong>LIMECONECTA</strong><span>Sua agenda conectada ao financeiro</span></div>
+    <nav>
+      <button class="btn-ghost" id="help-btn">Como usar</button>
+      <button class="btn-ghost" id="logout-btn">Sair</button>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="welcome">
+      <h1 id="welcome-title">Olá 👋</h1>
+      <p id="license-status">Verificando licença...</p>
+    </section>
+
+    <section class="cards-grid">
+      <article class="metric"><span>Receita prevista</span><strong id="metric-total">R$ 0,00</strong></article>
+      <article class="metric"><span>Pacientes</span><strong id="metric-pacientes">0</strong></article>
+      <article class="metric"><span>Sessões</span><strong id="metric-sessoes">0</strong></article>
+      <article class="metric"><span>Ticket médio</span><strong id="metric-ticket">R$ 0,00</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Pacientes e valores</h2>
+          <p>Cadastro salvo por usuária no Supabase.</p>
+        </div>
+        <button class="btn-primary" id="add-patient-btn">+ Novo paciente</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Paciente</th><th>Valor padrão</th><th>Status</th><th>Ações</th></tr></thead>
+          <tbody id="patients-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Relatório</h2>
+          <p>Modelo inicial do Excel Premium.</p>
+        </div>
+        <button class="btn-primary" id="excel-btn">Gerar Excel Premium</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="help-modal">
+    <div class="modal-card">
+      <button class="modal-close" data-close="help-modal">×</button>
+      <h2>Como usar o LIMECONECTA</h2>
+      <ol>
+        <li>Cadastre os pacientes e valores.</li>
+        <li>Conecte sua agenda Google na próxima etapa da evolução.</li>
+        <li>Confira o financeiro mensal.</li>
+        <li>Gere o Excel Premium.</li>
+      </ol>
+    </div>
+  </div>
+
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

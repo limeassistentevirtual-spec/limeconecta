@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LIMECONECTA — Acesso</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="auth-body">
+  <main class="auth-shell">
+    <section class="auth-brand">
+      <img class="brand-logo-auth" src="assets/logo.png" alt="LIME">
+      <h1><span class="brand-turq">LIME</span>CONECTA</h1>
+      <strong>Sua agenda conectada ao financeiro.</strong>
+    </section>
+
+    <section class="auth-card">
+      <h2>Acessar sistema</h2>
+      <p class="muted">Entre com o e-mail liberado pela administradora.</p>
+
+      <form id="login-form">
+        <label>E-mail</label>
+        <input id="email" type="email" placeholder="seuemail@exemplo.com" required />
+
+        <label>Senha</label>
+        <input id="password" type="password" placeholder="Sua senha" required />
+
+        <button class="btn-primary" type="submit">Entrar</button>
+      </form>
+
+      <button class="link-btn" id="forgot-btn" type="button">Esqueci minha senha</button>
+      <p id="auth-message" class="message"></p>
+
+      <div class="legal-small">
+        Ao acessar, você concorda com os <a href="docs/TERMOS.html" target="_blank">Termos de Uso</a> e a <a href="docs/PRIVACIDADE.html" target="_blank">Política de Privacidade</a>.
+      </div>
+    </section>
+  </main>
+
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
