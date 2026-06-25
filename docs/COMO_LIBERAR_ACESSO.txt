@@ -1,0 +1,26 @@
+COMO LIBERAR ACESSO NO LIMECONECTA
+
+1. Entre no Supabase.
+2. Vá em Authentication > Users.
+3. Clique em Add user / Invite user.
+4. Cadastre o e-mail da cliente.
+5. Copie o User ID criado.
+6. Vá em Table Editor > usuarios.
+7. Crie uma linha com:
+   - auth_user_id: ID copiado do usuário Auth
+   - nome: nome da cliente
+   - email: e-mail da cliente
+   - papel: psicologa
+   - plano: Teste, Mensal ou Anual
+   - ativo: true
+   - vencimento: data de vencimento, se quiser controlar
+
+Para bloquear uma cliente:
+- Vá em admin.html ou na tabela usuarios e deixe ativo = false.
+
+Para você acessar o painel admin:
+- Crie seu usuário em Authentication > Users.
+- Na tabela usuarios, crie uma linha com papel = admin e ativo = true.
+- Depois acesse /admin.html.
+
+Observação: o envio automático de e-mail de convite profissional exige uma Edge Function/backend. Sem backend, o fluxo seguro é criar usuário no Supabase Auth e liberar na tabela usuarios.
