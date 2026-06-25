@@ -54,12 +54,16 @@ function renderClients() {
     </tr>
   `).join('') || '<tr><td colspan="7">Nenhuma cliente cadastrada.</td></tr>';
 
-  const nonAdmin = CLIENTS.filter(c => c.papel !== 'admin');
-  document.getElementById('metric-total-clientes').textContent = nonAdmin.length;
-  document.getElementById('metric-ativas').textContent = nonAdmin.filter(c => c.ativo).length;
-  document.getElementById('metric-bloqueadas').textContent = nonAdmin.filter(c => !c.ativo).length;
-  document.getElementById('metric-teste').textContent = nonAdmin.filter(c => String(c.plano || '').toLowerCase() === 'teste').length;
-}
+  const clientes = CLIENTS.filter(c => c.papel !== 'admin');
+const ativas = clientes.filter(c => c.ativo === true);
+const bloqueadas = clientes.filter(c => c.ativo === false);
+const teste = clientes.filter(c => String(c.plano || '').toLowerCase() === 'teste');
+
+document.getElementById('metric-total-clientes').textContent = clientes.length;
+document.getElementById('metric-ativas').textContent = ativas.length;
+document.getElementById('metric-bloqueadas').textContent = bloqueadas.length;
+document.getElementById('metric-teste').textContent = teste.length;
+ }
 
 function openClientModal(id = null) {
   clientMessage.textContent = '';
