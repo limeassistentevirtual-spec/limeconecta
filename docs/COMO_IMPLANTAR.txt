@@ -1,0 +1,21 @@
+LIMECONECTA - Como implantar esta versão
+
+1. Supabase:
+   - Abra SQL Editor > New query.
+   - Cole e rode o conteúdo de docs/POLITICAS_ADMIN.sql.
+
+2. Cloudflare:
+   - Descompacte este ZIP.
+   - Vá em Workers e Pages > agendamentos > Nova implantação.
+   - Faça upload da pasta inteira descompactada.
+   - Clique em Deploy.
+
+3. Acesso admin:
+   - Entre com o e-mail admin já criado no Supabase Auth.
+   - Se o perfil estiver com papel = admin, o sistema abre admin.html automaticamente.
+
+4. Para liberar uma cliente nesta primeira versão:
+   - Crie a usuária em Supabase > Authentication > Users.
+   - Copie o User ID.
+   - Entre no painel admin do LIMECONECTA.
+   - Clique em Nova cliente, cole o User ID e preencha nome, e-mail, plano e vencimento.
