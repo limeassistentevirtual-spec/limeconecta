@@ -5,5 +5,8 @@ select{width:100%;padding:13px 14px;border:1px solid var(--borda);border-radius:
 /* Ajustes de marca */
 .brand-turq{color:var(--turq);}
 .auth-brand h1::first-letter{color:inherit;}
-.brand-logo-auth{width:220px;max-width:72vw;}
+.brand-logo-auth{
+  width:320px;
+  max-width:80vw;
+}
 @media(max-width:760px){.brand-logo-auth{width:170px;}}
